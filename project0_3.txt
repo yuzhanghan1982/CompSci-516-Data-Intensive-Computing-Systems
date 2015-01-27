@@ -1,0 +1,243 @@
+System Review 
+-------------
+31 - 45
+-------------
+
+###31 Solr
+
+####Strength:
+
+Full-text search, optimized for large traffic volume, scalability and fault-tolerance [1]
+
+####Weakness:
+
+Lack support for nesting documents, joins not supported, no shard auto-rebalancing [2]
+
+####References:
+
+[1] Solr Features. http://lucene.apache.org/solr/features.html
+
+[2] Solr vs ElasticSearch. http://solr-vs-elasticsearch.com/
+
+###32 S4
+
+####Strength:
+
+For developing stream processing applications, general-purpose, distributed, scalable, fault-tolerant, pluggable platform [1]
+
+####Weakness:
+
+Do not support high level analytics on streams like Esper, CEP is more complicated than Esper [2]
+
+####References:
+
+[1] Apache S4. http://incubator.apache.org/s4/
+
+[2] A Survey of the State-of-the-Art in Event Processing. http://www.slideshare.net/Hadoop_Summit/hadoop-entering-phase-two?next_slideshow=1
+
+###33 Redis
+
+####Strength:
+
+Disk-backed in-memory database, key-value cache and store, keys can contain sophisticated data objects [1], support multiple nodes [2]
+
+####Weakness:
+
+Dataset size lower than RAM size, API is highly atomic [2]
+
+####References:
+
+[1] Redis. http://redis.io/documentation
+
+[2] Cassandra vs … vs Redis. http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
+
+###34 Amazon RDS
+
+####Strength:
+
+SQL, flexible data size [2], database instance configuration is fully tunable [1]
+
+####Weakness:
+
+Poor support for SQL Server [2]
+
+####References:
+
+[1] Amazon RDS. http://aws.amazon.com/rds/
+
+[2] Azure vs Amazon. http://www.slideshare.net/tekcraft/azure-vsamazon
+
+###35 Lucene
+
+####Strength:
+
+Provide text search engine library, including real-time Indexing and efficient Search Algorithms [1]
+
+####Weakness:
+
+User-defined java application needed to make use of Lucene functionality [2]
+
+####References:
+
+[1] Apache Lucene. http://lucene.apache.org/
+
+[2] Lucene vs Sphnix. http://www.quora.com/How-do-Solr-Lucene-Sphinx-and-Searchify-compare
+
+###36 Sphinx
+
+####Strength:
+
+Full text search server, it can batch index and search data stored in a database, support also real time indexing and database indexing [1]
+
+####Weakness:
+
+Integrate tightly with MySQL [2]
+
+####References:
+
+[1] Sphinx. http://sphinxsearch.com/about/sphinx/
+
+[2] Solr vs Sphinx. http://beerpla.net/2009/09/03/comparison-between-solr-and-sphinx-search-servers-solr-vs-sphinx-fight/
+
+###37 Esper
+
+####Strength:
+
+Support complex event processing (CEP), can process series of complex events, SQL-like interface [1]
+
+####Weakness:
+
+Single-machine engine, no support for multi-core, sliding window cannot express some complicated stream computation [2]
+
+####References:
+
+[1] Esper. http://esper.codehaus.org/
+
+[2] Storm vs Esper. https://tomdzk.wordpress.com/2011/09/28/storm-esper/
+
+###38 Storm
+
+####Strength:
+
+Distributed, real-time computation, simple programming model, easy to scale, java-based, in-memory [1]
+
+####Weakness:
+
+User must programmatically define analytic functions – descriptive query languages not support, CEP not natively supported [2]
+
+####References:
+
+[1] Apache Storm. https://storm.apache.org/
+
+[2] Storm for CEP. http://nsinfra.blogspot.com/2013/06/storm-cep.html
+
+###39 Muppet
+
+####Strength:
+
+MapReduce-style framework, work on a cluser for fast data
+
+####Weakness:
+
+On-disk, not on a CEP level [2]
+
+####References:
+
+[1] Muppet: MapReduce-Style Processing of Fast Data
+
+[2] A Survey of State-of-the-Art in Event Processing. http://www.slideshare.net/otaviomcarvalho/wsppdpresentation
+
+###40 HBase
+
+####Strength:
+
+Scalable, fast update, user-defined embedded function, availability, column-oriented store easy for aggregation, rich set of data filters, light-weight compared to Cassandra and Impala, … [1]
+
+####Weakness:
+
+No support for complex analytics, no actual support for load balancing, Client interface support only few basic commands, not easy to control data distribution and table schema … [2]
+
+####References:
+
+[1] HBase: the Definitive Guide.
+
+[2] HBase vs Cassandra. https://ria101.wordpress.com/2010/02/24/hbase-vs-cassandra-why-we-moved/
+
+###41 IBM DB2
+
+####Strength:
+
+Support not only relational schemas, support both transactional and analytical operations, optimized in-memory processing [1]
+
+####Weakness:
+
+Fixed schema, no support for data analytics engines like MapReduce [1][2].
+####References:
+
+[1] IBM DB2.  http://www-01.ibm.com/software/data/db2/
+
+[2] IBM DB2 vs MySQL. http://db-engines.com/en/system/DB2%3BMySQL
+
+###42 PostgreSQL
+
+####Strength:
+
+object-relational, strong reliability and data integrity, fully ACID compliant, highly programmable, extensible [1]
+
+####Weakness:
+
+Poor performance with such as read-heavy workloads [2]
+
+####References:
+
+[1] PostgreSQL. http://www.postgresql.org/about/
+
+[2] PostgreSQL vs MySQL vs SQLite. https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems
+
+###43 Neo4j
+
+####Strength:
+
+Graph database, high-performance native graph engine for navigation, scalable to (memory of) thousands of nodes, high-performance cache for working set [1]
+
+####Weakness:
+
+No support for processing engines like Hadoop, no user access control, free version no data partitioning [2]
+
+####References:
+
+[1] Neo4j. http://neo4j.com/product/
+
+[2] mongoDB vs Neo4j. http://db-engines.com/en/system/MongoDB%3BNeo4j
+
+###44 CouchDB
+
+####Strength:
+
+NoSQL distributed database, flexible data model, support a high number of concurrent reads and writes, can be deployed as document database, key-value store or distributed cache [1]
+
+####Weakness:
+
+Built in Erlang, limited max. value size (20 MB), no transaction, no graph [2]
+
+####References:
+
+[1] Couchbase Server. http://www.couchbase.com/nosql-databases/couchbase-server
+
+[2] Couchbase vs HBase. http://vschart.com/compare/couchbase/vs/hbase
+
+###45 ClustrixDB
+
+####Strength:
+
+In-memory real-time analytics, scale linearly to hundreds of cores, move code to data (distributed query processing), MapReduce [1]
+
+####Weakness:
+
+No auto-deletion after a row expires [2]
+
+####References:
+
+[1] ClustrixDB, http://www.clustrix.com/why-clustrix/features/
+
+[2] HBase vs ClustrixDB. http://vschart.com/compare/apache-hadoop/vs/clustrix

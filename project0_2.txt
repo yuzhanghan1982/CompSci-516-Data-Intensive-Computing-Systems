@@ -1,0 +1,244 @@
+System Review 
+-------------
+16 - 30
+-------------
+
+###16 Spark
+
+####Strength:
+
+In-memory engine for fast iterative queries, support HDFS and HBase, a more general programming model then MapReduce, support a rich set of programming operators [1]
+
+####Weakness:
+
+Only support micro-batch as streaming [2], high memory consumption [1]
+
+####References:
+
+[1] Spark and Shark. http://www.slideshare.net/Hadoop_Summit/spark-and-shark
+
+[2] Apache Storm and Spark Streaming Compared. http://www.slideshare.net/ptgoetz/apache-storm-vs-spark-streaming
+
+###17 Shark
+
+####Strength:
+
+SQL interface for Spark, compatible with Hive, efficient column-oriented in-memory storage of records [1][2] 
+
+####Weakness:
+
+Performance relies on memory consumption [2]
+
+####References:
+
+[1] Shark: SQL and Rich Analytics at Scale. http://www.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-214.pdf.
+
+[2] Spark and Shark. http://www.slideshare.net/Hadoop_Summit/spark-and-shark
+
+###18 SQL Azure
+
+####Strength:
+
+SQL, cloud native, full support for SQL Server and tools atop [1]
+
+####Weakness:
+
+For relatively small data sets, resource highly virtualized – some DB instance parameters not tunable,
+
+####References:
+
+[1] SQL Azure. http://azure.microsoft.com/en-us/services/sql-database/
+
+[2] Top 5 Differences Between Amazon RDS and Microsoft SQL Azure. http://blog.webyog.com/2010/01/06/top-5-differences-between-amazon-rds-and-microsoft-sql-azure/
+
+###19 Dremel
+
+####Strength:
+
+Fast interactive analysis of very large datasets, nested data, SQL-like query language, column-oriented[1]
+
+####Weakness:
+
+SQL unable to express some complex logic, partial support for unstructured data[2]
+
+####References:
+
+[1] Dremel: Interactive Analysis of Web-Scale Datasets. http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/36632.pdf
+
+[2] An Inside Look at Google BigQuery. https://cloud.google.com/files/BigQueryTechnicalWP.pdf
+
+###20 Impala
+
+####Strength:
+
+SQL, analytic database, interactive performance, query HDFS or HBase data [1]
+
+####Weakness:
+
+Fault tolerance within a query [2], not designed for large batch jobs for MapReduce
+
+####References:
+
+[1] Impala. http://www.cloudera.com/content/cloudera/en/products-and-services/cdh/impala.html
+
+[2] Drawbacks of Impala. http://www.quora.com/Does-Cloudera-Impala-have-any-drawbacks-when-compared-with-Hive
+
+###21 Druid
+
+####Strength:
+
+Column-oriented, real-time interactive applications, various built-in algorithms for analysis
+
+####Weakness:
+
+Partially in-memory,  write support is very limited [1]
+
+####References:
+
+[1] Druid. http://druid.io/druid.html#hri
+
+###22 SAP HANA
+
+####Strength:
+
+in-memory, column-oriented, relational [1]
+
+####Weakness:
+
+not capable of handling petabyte-level data, not suitable for social networking and social media data analytics [2]
+
+####References:
+
+[1] SAP HANA Technology. http://hana.sap.com/abouthana/hana-technology.html
+
+[2] Primer on SAP HANA. http://wikibon.org/wiki/v/Primer_on_SAP_HANA
+
+###23 DataStax Enterprise
+
+####Strength:
+
+real-time in-memory integrated analytic platform, built on Cassandra, visual management [1], built in redundancy for availability [2]
+
+####Weakness:
+
+Analytics on Cassandra data via MapReduce/Hive/Pig/Mahout (might only suitable for batch jobs), not exactly SQL[2]
+
+####References:
+
+[1] DataStax Enterprise. http://www.datastax.com/what-we-offer/products-services/datastax-enterprise
+
+[2] DataStax White Paper. http://www.datastax.com/wp-content/uploads/2013/11/WP-DataStax-Oracle.pdf
+
+###24 Hypertable
+
+####Strength:
+
+NoSQL (no data types, joins, transactions), versioned cells [1], generate MapReduce jobs for processing [2]
+
+####Weakness:
+
+Not for real-time interactive jobs due to reliance on MapReduce [2].
+
+####References:
+
+[1] Hypertable. http://hypertable.com/why_hypertable/
+
+[2] Cassandra vs MongoDB vs Hypertable. http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
+
+###25 DynameDB
+
+####Strength:
+
+NoSQL database service, single-digit millisecond latency, document and key-value data models, scaling behind the scenes, fine-grained user access control, 
+
+####Weakness:
+
+Sacrifice consistency for availability to some extent [3], use and capacity of application is limited [2] 
+
+####References:
+
+[1] Amazon DynamoDB. http://aws.amazon.com/dynamodb/
+
+[2] 7 Reasons You Should Use MongoDB over DynamoDB. http://www.masonzhang.com/2013/08/7-reasons-you-should-use-mongodb-over.html
+
+[3] Dynamo: Amazon’s Highly Available Key-value Store. http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
+
+###26 MongoDB
+
+####Strength:
+
+NoSQL, document database, rich document-based queries, flexible aggregation and data processing via MapReduce, optional streaming writes [1]
+
+####Weakness:
+
+No native joins, do not support unstructured data [2]
+
+####References:
+
+[1] mongoDB. http://www.mongodb.org/about/introduction/
+
+[2] MySQL vs mongoDB. http://www.scriptrock.com/articles/mysql-vs-mongodb
+
+###27 Google Cloud SQL
+
+####Strength:
+
+MySQL in cloud, maintenance and replication are hidden [1]
+
+####Weakness:
+
+Only SQL, max. DB size 500 GB [2]
+
+####References:
+
+[1] Google Cloud SQL. https://cloud.google.com/sql/docs/instances#creating
+
+[2] Choosing the Right Cloud Database. http://www.slideshare.net/janakiramm/d-baa-scloudexpo
+
+###28 Tokutek
+
+####Strength:
+
+high-performance storage engine for MySQL and other SQL databases,  Fractal Tree indexing enhance performance, accelerate reads and updates, improve scalability of underlying database [1]
+
+####Weakness:
+
+Speed improves with limited types of queries (it improves little with table scans and read-update mix on MySQL with InnoDB [2])
+
+####References:
+
+[1] TokuDB. http://www.tokutek.com/tokudb-for-mysql/
+
+[2] Comparing TokuDB to MySQL with InnoDB. http://www.databasejournal.com/features/mysql/comparing-tokudb-to-mysql-5.5-with-innodb-on-small-databases.html
+
+###29 VoltDB
+
+####Strength:
+
+New SQL, in-memory operational database, handle fast data, automate decisions on streams, scale to process unlimited streams [1]
+
+####Weakness:
+
+Limited to processing small and fast queries, no compression [2]
+
+####References:
+
+[1] Why VoltDB. http://voltdb.com/fast-smart-scale
+
+[2] VoltDB vs MongoDB. http://vschart.com/compare/voltdb/vs/mongodb
+
+###30 MySQL Cluster
+
+####Strength:
+
+automatically shard tables across nodes, support SQL and NoSQL APIs, real-time response time, auto cluster installation [1]
+
+####Weakness:
+
+Multiple MySQL nodes provide no distributed table locks, difficulty with shared-hardware multi-tenancy: multiple data node processes on single node is not supported [2]
+
+####References:
+
+[1] MySQL Cluster. http://www.mysql.com/products/cluster/
+
+[2] Limitations. http://dev.mysql.com/doc/refman/5.0/en/mysql-cluster-limitations-multiple-nodes.html

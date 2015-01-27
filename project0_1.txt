@@ -1,0 +1,305 @@
+System Review 
+-------------
+1 - 15
+-------------
+###1 Hadoop
+####Strength:
+Fast batch processing with relatively low overhead ([1] pp. 5)
+
+Reliability: replication leads to less hardware failure ([1] pp. 3)
+
+Allow data to be combined from multiple sources ([1] pp. 3)
+
+Capable of processing petabytes of data ([1] pp. 5)
+
+Dynamic schema ([1] pp. 5)
+
+Graceful handling of partial failure ([1] pp. 7)
+
+####Weakness:
+Low intermediate integrity within jobs ([1] pp. 5) 
+
+Deficient in Iterative jobs, Interactive analytics due to long setup time of jobs and tasks ([2])
+
+Load large amount of data to disks ([1] pp. 67)
+
+Relatively rigid programming model ([1] pp. 20)
+
+Hard for non-professionals to configure and tune 
+
+####References:
+
+[1] Hadoop: The Definitive Guide. Tom White.  O’Really.
+
+[2] Spark: Cluster Computing with Working Sets. Matei Zaharia et. al. HotCloud'10 Proceedings of the 2nd USENIX conference on Hot topics in cloud computing.
+
+###2 Mapr
+
+####Strength:
+
+Support NoSQL/SQL, batch/interactive/streaming jobs, complex analytics jobs like machine learning [1]
+
+Support security, fault tolerance, resource management and workload management [2]
+
+HDFS is replaced, so no central name node for single-node failure [2]
+
+####Weakness:
+
+Not fully open source [1]
+
+Compatibility with other systems based on HDFS [2]
+
+####References:
+
+[1] MapR https://www.mapr.com/products/mapr-distribution-including-apache-hadoop
+
+[2] What makes MapR superior to to other Hadoop distributions? http://sonra.io/tag/mapr-fs-vs-hdfs/
+
+###3 Hadapt
+
+####Strength:
+
+Multiple query/programming interfaces[1]
+
+Query fault tolerance and load balancing that are not supported by many databases [1]
+
+Diverse storage engines adapted to multiple types of data [1]
+
+Flexible schema [1]
+
+####Weakness:
+
+Not fully open source[1]
+
+Does not support in-memory computing like Shark [2]
+
+####References:
+
+[1] Hadapt. http://hadapt.com/product/
+
+[2] Low-Latency SQL at Scale: A Performance Analysis of Shark. 
+https://amplab.cs.berkeley.edu/2012/11/26/low-latency-sql-queries-at-massive-scale-a-performance-analysis-of-shark/
+
+###4 EMC Greenplum DB
+
+####Strength:
+
+Massively parallel processing [1]
+
+Data is distributed on commodity hardware [1]
+
+Full SQL support [1]
+
+Columnar and row-oriented [1]
+
+####Weakness:
+
+No ability to connect to external database [2]
+
+Dependency on physical infrastructure when performing backup [2]
+
+####References:
+
+[1] Greenplum and Hadoop. http://www.slideshare.net/edkohlwey/dc-hadoop-greenplum
+
+[2] Comparative Study of EMC Greenplum and Oracle Exadata
+
+http://borjournals.com/Research_papers/Ap_2013/1247IT.pdf
+
+###5 SAP Sybase IQ
+
+####Strength:
+
+Columnar: fast aggregation [1]
+
+Relational: structured data [1]
+
+Large scale of data: petabyte scale [1]
+
+In-memory [1]
+
+####Weakness:
+
+Relatively low concurrent read performance [1]
+
+only a single session can access to a particular table at one time [2]
+
+####References:
+
+[1] SAP IQ. http://www.sap.com/pc/tech/database/software/sybase-iq-big-data-
+management/index.html
+
+[2] A brief comparison between SAP IQ and HANA. 
+http://scn.sap.com/community/developer-center/hana/blog/2013/05/21/a-brief-comparison-of-sap-iq-and-hana-column-store-databases
+
+###6 IBM Netezza
+
+####Strength:
+
+Horizontal scalability [1]
+
+Hardware-enhanced indexing [2]
+
+Relational, optimal for structured data [2]
+
+####Weakness:
+
+Hardware needs to be located together, purchased from the vendor [2]
+
+Not optimal for OLTP [1]
+
+####References:
+
+[1] Comparison of MPP Data Warehouse Platforms. 
+http://www.slideshare.net/DavidPortnoy/comparison-of-mpp-data-warehouse-platforms
+
+[2] Teradata vs Netzza Vs Hadoop. https://coffingdw.com/teradata-vs-netezza-vs-hadoop/
+
+###7 Dryad
+
+####Strength:
+
+More general programming style compared to MapReduce (not restricted to two phases), more types of inter-stage communication (shared memory, sockets, etc.) [1]
+
+####Weakness:
+
+Complicated to use compared to MapReduce [1]
+
+Not supported by many tools (only DryadLINQ) [2]
+
+####References:
+
+[1] MapReduce and Dryad. 
+http://www.umbrant.com/blog/2011/dryad_mapreduce_review.html
+
+[2] Microsoft Research. http://research.microsoft.com/en-us/projects/dryad/
+
+###8 MapReduce
+
+####Strengths:
+
+Highly parallel, applicable to wide range of tasks, flexible (single map vs multip maps, combiner, custom data partitioner), elegant interpretation of parallel and distributed computing, multiple data format, hides low level details such as communication, barrier, task synchronization as in MPI [1]
+
+####Weakness:
+
+Phases communicate through disks, hard to interpret complicated problems in two phases [2]
+
+####References:
+
+[1] MapReduce and Dryad. http://www.umbrant.com/blog/2011/dryad_mapreduce_review.html
+
+[2] SQL and MapReduce. https://gigaom.com/2009/04/14/mapreduce-vs-sql-its-not-one-or-the-other/
+
+###9 MapReduce Online
+
+####Strength:
+
+Data pipelined between operators, supports online aggregation and continuous queries on Hadoop [1]
+
+Map works on infinite data, reduces export early results [2]
+
+####Weakness:
+
+MapReduce jobs have long setup time, not suitable for small aggregation window [1]
+
+####References:
+
+[1] MapReduce Online. http://db.cs.berkeley.edu/papers/nsdi10-hop.pdf
+
+[2] MapReduce Online. http://www.slideshare.net/hadoopusergroup/map-reduce-online
+
+###10 Teradata Aster
+
+####Strength:
+
+Support MapReduce on a MPP relational database, handle extremely large data sets, support SQL, fast with structured data [1]
+
+####Weakness:
+
+Not implemented on HDFS – configurable data redundancy, highly parallel I/O, fast bulk load … [2] 
+
+####References:
+
+[1] Head-to-head Competition. http://www.teradatamagazine.com/v12n04/Tech2Tech/Head-to-Head-Competition/
+
+[2] Thinking about the HDFS vs. Other Storage Technologies. http://hortonworks.com/blog/thinking-about-the-hdfs-vs-other-storage-technologies/
+
+###11 HP Vertica
+
+####Strength:
+
+Analytics database, column-oriented relational database, optimal for INSERTs and SELECTs [1]
+
+####Weakness:
+
+Not optimal for small writes at high concurrency [2]
+
+####References:
+
+[1] Vertica. http://www.slideshare.net/LivePersonDev/introduction-to-vertica-architecture-more
+
+[2] HP Introduces HP Vertica for SQL on Hadoop. http://www.pbsnow.com/hp/hp-introduces-hp-vertica-for-sql-on-hadoop/
+
+###12 Infobright
+
+####Strength:
+
+Columnar database - fast aggregation, integrated with MySQL, optimal for iterative analytics [2], self tuning [2]
+
+####Weakness:
+
+Hard to support vertical scalability, no clear information about how it supports parallel processing
+
+####References:
+
+[1] Introduction to Columnar Databases. http://www.slideshare.net/frutik/ss-15945615
+
+[2] What are some good resources on Infobright query performance tuning? http://www.quora.com/What-are-some-good-resources-on-Infobright-query-performance-tuning
+
+###13 Calpont InfiniDB
+
+####Strength:
+
+MySQL interface[1], columnar[2], analytic database optimized for complex queries[2], multi-core support for even single queries[2] 
+
+####Weakness:
+
+Slow random insert and update, no indexes [3]
+
+####References:
+
+[1] Product review. http://www.information-management.com/gallery/-10021367-1.html?start=21
+
+[2] InfiniDB 4.0.2 review. http://www.scalemysql.com/blog/2014/03/13/infinidb-4-0-2-review/
+
+[3] Calpont InfiniDB, The Good, Bad and Ugly. http://boulderbibraintrust.org/brain_trust_blog/2010/04/calpont-infinidb-the-good-the.php
+
+###14 GridGrain
+
+####Strength:
+
+In-memory, consequently support for high-volume transactions, real-time analytics, stream processing, as a cache layer for Hadoop [1] 
+
+####Weakness:
+
+Cannot replace Hadoop for highly parallel offline batch jobs[2]
+
+####References:
+
+[1] GridGrain In-Memory Data Fabric Features. http://www.gridgain.com/products/in-memory-data-fabric/features/
+
+[2] GridGrain and Hadoop. http://www.gridgain.com/gridgain-hadoop-differences-synergies/
+
+###15 Platfora
+
+####Strength:
+
+Generate MapReduce jobs to access raw data, execute users’ analytical queries in-memory, represent result graphically, scalable over large number of servers [1][2]
+
+####Weakness:
+
+####References:
+
+[1] Platfora. http://www.platfora.com/product/architecture/
+
+[2] Platfora, Impala, and the Future of Hadoop. http://www.platfora.com/blog-post/platfora-impala-and-the-future-of-hadoop/
